@@ -16,8 +16,8 @@ def SendMail(ImgFileName, count):
     img_data = open(ImgFileName, 'rb').read()
     msg = MIMEMultipart()
     msg['Subject'] = 'Reporte reconocimiento de rostros'
-    msg['From'] = 'RaspProyect@gmail.com'
-    msg['To'] = 'santiago.silcart@gmail.com'
+    msg['From'] = '***@gmail.com'
+    msg['To'] = '***@gmail.com'
 
     text = MIMEText("Se ha detectado un diverso numero de personas en la estacion - No personas detectadas:  " + str(count))
     msg.attach(text)
@@ -29,7 +29,7 @@ def SendMail(ImgFileName, count):
     s.starttls()
     s.ehlo()
     s.login(gmail_user, gmail_pwd)
-    s.sendmail(gmail_user, "santiago.silcart@gmail.com", msg.as_string())
+    s.sendmail(gmail_user, "***@gmail.com", msg.as_string())
     s.quit()
 
 
