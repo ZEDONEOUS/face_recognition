@@ -31,33 +31,22 @@ def SendMail(ImgFileName, count):
     s.login(gmail_user, gmail_pwd)
     s.sendmail(gmail_user, "***@gmail.com", msg.as_string())
     s.quit()
-
-
-
-
-
+    
 if __name__ == '__main__':
     face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-
     count = 0
-
     while(True):
         cap = cv2.VideoCapture(0)
         ret, frame = cap.read()
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(gray, 1.3, 5)
         print "Rostros en imagen capturada " + str(len(faces))
-
         for(x, y, w, h) in faces:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
-
         img_path = str(count) + '_image.jpg'
         cv2.imwrite(img_path, frame)
-
         count = count + 1 	
         cap.release()
         SendMail(img_path, len(faces))
         time.sleep(5)
-
-
     cv2.destroyAllWindows()
