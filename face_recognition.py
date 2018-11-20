@@ -9,8 +9,8 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 
-gmail_user = "RaspProyect@gmail.com"
-gmail_pwd = "Rasp12berry"
+gmail_user = "***@gmail.com"
+gmail_pwd = "***"
 
 def SendMail(ImgFileName, count):
     img_data = open(ImgFileName, 'rb').read()
